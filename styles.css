@@ -1,0 +1,22 @@
+body{
+
+}
+
+.calculator {
+    width: 300px;
+    height: 400px;
+    border-radius: 5px;
+    background-color: rgba(160, 220, 186, 1);
+    display: flex;
+    margin: auto;
+  }
+
+  .display {
+    width: 265px;
+    height: 95px;
+    background-color: rgba(177, 178, 181, 1);
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 18px    ;
+
+  }
