@@ -23,6 +23,10 @@ const operate = function (operator, a, b) {
 //You should be storing the ‘display value’ in a variable somewhere for use in the next step.
 let currentValue = 0;
 
+let displayValue = document.addEventListener('click', () => {
+    document.querySelector('.display').textContent = currentValue;
+})
+
 const btn1 = document.getElementById('btn1').addEventListener('click', () => {
     currentValue = currentValue * 10 + 1;
     document.querySelector('.display').textContent = currentValue;
