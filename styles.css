@@ -10,6 +10,17 @@
   border-radius: 5px;
 }
 
+.btn {
+  /* ... your existing styles ... */
+  transition: transform 0.2s ease;
+}
+
+.btn:active {
+  transform: scale(
+    0.9
+  ); /* You can adjust the scale value for your desired effect */
+}
+
 .display {
   width: 225px;
   height: 40px;

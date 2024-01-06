@@ -22,56 +22,107 @@ const operate = function (operator, a, b) {
 //Create the functions that populate the display when you click the number buttons.
 //You should be storing the ‘display value’ in a variable somewhere for use in the next step.
 let currentValue = 0;
+let displayValue = function () {
+  document.querySelector(".display").textContent = currentValue;
+};
 
-let displayValue = document.addEventListener('click', () => {
-    document.querySelector('.display').textContent = currentValue;
-})
-
-const btn1 = document.getElementById('btn1').addEventListener('click', () => {
-    currentValue = currentValue * 10 + 1;
-    document.querySelector('.display').textContent = currentValue;
+const btn1 = document.getElementById("btn1").addEventListener("click", () => {
+  currentValue = currentValue * 10 + 1;
+  displayValue();
 });
-const btn2 = document.getElementById('btn2').addEventListener('click', () => {
-    currentValue = currentValue * 10 + 2;
-    document.querySelector('.display').textContent = currentValue;
+const btn2 = document.getElementById("btn2").addEventListener("click", () => {
+  currentValue = currentValue * 10 + 2;
+  displayValue();
 });
-const btn3 = document.getElementById('btn3').addEventListener('click', () => {
-    currentValue = currentValue * 10 + 3;
-    document.querySelector('.display').textContent = currentValue;
+const btn3 = document.getElementById("btn3").addEventListener("click", () => {
+  currentValue = currentValue * 10 + 3;
+  displayValue();
 });
-const btn4 = document.getElementById('btn4').addEventListener('click', () => {
-    currentValue = currentValue * 10 + 4;
-    document.querySelector('.display').textContent = currentValue;
+const btn4 = document.getElementById("btn4").addEventListener("click", () => {
+  currentValue = currentValue * 10 + 4;
+  displayValue();
 });
-const btn5 = document.getElementById('btn5').addEventListener('click', () => {
-    currentValue = currentValue * 10 + 5;
-    document.querySelector('.display').textContent = currentValue;
+const btn5 = document.getElementById("btn5").addEventListener("click", () => {
+  currentValue = currentValue * 10 + 5;
+  displayValue();
 });
-const btn6 = document.getElementById('btn6').addEventListener('click', () => {
-    currentValue = currentValue * 10 + 6;
-    document.querySelector('.display').textContent = currentValue;
+const btn6 = document.getElementById("btn6").addEventListener("click", () => {
+  currentValue = currentValue * 10 + 6;
+  displayValue();
 });
-const btn7 = document.getElementById('btn7').addEventListener('click', () => {
-    currentValue = currentValue * 10 + 7;
-    document.querySelector('.display').textContent = currentValue;
+const btn7 = document.getElementById("btn7").addEventListener("click", () => {
+  currentValue = currentValue * 10 + 7;
+  displayValue();
 });
-const btn8 = document.getElementById('btn8').addEventListener('click', () => {
-    currentValue = currentValue * 10 + 8;
-    document.querySelector('.display').textContent = currentValue;
+const btn8 = document.getElementById("btn8").addEventListener("click", () => {
+  currentValue = currentValue * 10 + 8;
+  displayValue();
 });
-const btn9 = document.getElementById('btn9').addEventListener('click', () => {
-    currentValue = currentValue * 10 + 9;
-    document.querySelector('.display').textContent = currentValue;
+const btn9 = document.getElementById("btn9").addEventListener("click", () => {
+  currentValue = currentValue * 10 + 9;
+  displayValue();
 });
-const btn0 = document.getElementById('btn0').addEventListener('click', () => {
-    currentValue = currentValue * 10 + 0;
-    document.querySelector('.display').textContent = currentValue;
+const btn0 = document.getElementById("btn0").addEventListener("click", () => {
+  currentValue = currentValue * 10 + 0;
+  displayValue();
 });
 
-const clearValue = document.getElementById('clear').addEventListener('click', () => {
+const clearValue = document
+  .getElementById("clear")
+  .addEventListener("click", () => {
     currentValue = 0;
-    document.querySelector('.display').textContent = currentValue;
-})
+    displayValue();
+  });
 
+//Make the calculator work! You’ll need to store the first number and second number that are input
+//into the calculator, utilize the operator that the user selects,
+//and then operate() on the two numbers when the user presses the “=” key.
 
+const addBtn = document.getElementById("add").addEventListener("click", () => {
+  firstInteger = currentValue;
+  currentValue = 0;
+  operator = "+";
+});
 
+const subtractBtn = document
+  .getElementById("subtract")
+  .addEventListener("click", () => {
+    firstInteger = currentValue;
+    currentValue = 0;
+    operator = "-";
+  });
+
+const multiplyBtn = document
+  .getElementById("multiply")
+  .addEventListener("click", () => {
+    firstInteger = currentValue;
+    currentValue = 0;
+    operator = "x";
+  });
+
+const divideBtn = document
+  .getElementById("divide")
+  .addEventListener("click", () => {
+    firstInteger = currentValue;
+    currentValue = 0;
+    operator = "/";
+  });
+
+const equal = document.getElementById("equal").addEventListener("click", () => {
+  secondInteger = currentValue;
+  switch (operator) {
+    case "+":
+      currentValue = add(firstInteger, secondInteger);
+      break;
+    case "-":
+      currentValue = subtract(firstInteger, secondInteger);
+      break;
+    case "x":
+      currentValue = multiply(firstInteger, secondInteger);
+      break;
+    case "/":
+      currentValue = divide(firstInteger, secondInteger);
+      break;
+  }
+  displayValue();
+});
