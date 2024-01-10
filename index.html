@@ -8,33 +8,34 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="calculator">
-      <div class="display">0</div>
-      <div class="button">
-        <div>
-          <button class="btn" numberBtn>1</button>
-          <button class="btn" numberBtn>2</button>
-          <button class="btn" numberBtn>3</button>
-          <button class="btn" operatorBtn>+</button>
-        </div>
-        <div>
-          <button class="btn" numberBtn>4</button>
-          <button class="btn" numberBtn>5</button>
-          <button class="btn" numberBtn>6</button>
-          <button class="btn" operatorBtn>-</button>
-        </div>
+    <div class="container">
+      <div class="calculator">
+        <div class="display">0</div>
+        <div class="button">
+          <div>
+            <button class="btn" numberBtn>1</button>
+            <button class="btn" numberBtn>2</button>
+            <button class="btn" numberBtn>3</button>
+            <button class="btn" id="operator" operatorBtn>+</button>
+          </div>
+          <div>
+            <button class="btn" numberBtn>4</button>
+            <button class="btn" numberBtn>5</button>
+            <button class="btn" numberBtn>6</button>
+            <button class="btn" id="operator" operatorBtn>-</button>
+          </div>
           <button class="btn" numberBtn>7</button>
           <button class="btn" numberBtn>8</button>
           <button class="btn" numberBtn>9</button>
-          <button class="btn" operatorBtn>x</button>
-        <div>
-          <button class="btn" numberBtn>0</button>
-          <button class="btn" id="clear">AC</button>
-          <button class="btn" id="equal">=</button>
-          <button class="btn" operatorBtn>/</button>
+          <button class="btn" id="operator" operatorBtn>x</button>
+          <div>
+            <button class="btn" numberBtn>0</button>
+            <button class="btn" id="clear">AC</button>
+            <button class="btn" id="equal">=</button>
+            <button class="btn" id="operator" operatorBtn>/</button>
+          </div>
         </div>
       </div>
-      <div class="debuggerDisplay"></div>
     </div>
   </body>
 </html>
