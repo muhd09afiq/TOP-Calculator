@@ -1,13 +1,6 @@
 const numberBtn = document.querySelectorAll("[numberBtn]");
 const display = document.querySelector(".display");
 
-const debuggerDisplay = document.querySelector(".debuggerDisplay");
-debuggerDisplay.addEventListener("click", () => {
-  if (display) {
-    debuggerDisplay.textContent = display.textContent;
-  }
-});
-
 //Number function
 numberBtn.forEach((button) => {
   button.addEventListener("click", () => {
@@ -68,7 +61,7 @@ operatorBtn.forEach((button) => {
 
 const clearBtn = document.querySelector("#clear");
 clearBtn.addEventListener("click", () => {
-  display.textContent = "";
+  display.textContent = "0";
   displayValue = 0;
   total = 0;
   a = 0;
