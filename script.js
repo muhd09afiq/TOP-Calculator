@@ -1,32 +1,45 @@
-
-
-const numberBtn = document.querySelectorAll('[numberBtn]');
+const numberBtn = document.querySelectorAll("[numberBtn]");
 const display = document.querySelector(".display");
 
-numberBtn.forEach(button => {
-  button.addEventListener('click', () => {
+//Number function
+numberBtn.forEach((button) => {
+  button.addEventListener("click", () => {
+    
     display.append(button.textContent);
     displayValue = display.textContent * 1;
-  })
-})
+  });
+});
 
-const operandBtn = document.querySelectorAll('[operandBtn]');
+const operatorBtn = document.querySelectorAll("[operatorBtn]");
 
-operandBtn.forEach(button => {
-  button.addEventListener('click', () => {
-    switch (button.textContent){
-      case '+':
-      operator = add;
-      break;
+operatorBtn.forEach((button) => {
+  button.addEventListener("click", () => {
+    switch (button.textContent) {
+      case "+":
+        operator = add;
+        break;
+      case "-":
+        operator = subtract;
+        break;
+      case "x":
+        operator = multiply;
+        break;
+      case "/":
+        operator = divide;
+        break;
     }
-  })
-})
+    if (!total){
+      a = displayValue;
+      displayValue = 0;
+    }
+  });
+});
 
-const clearBtn = document.querySelector('#clear');
-clearBtn.addEventListener('click', () => {
-  display.textContent = '';
+const clearBtn = document.querySelector("#clear");
+clearBtn.addEventListener("click", () => {
+  display.textContent = "";
   displayValue = 0;
-})
+});
 
 let displayValue;
 let a;
@@ -46,9 +59,8 @@ const divide = function (a, b) {
 };
 
 let operator = "";
-let total = 0;
+let total;
 
 const operate = function (operator, a, b) {
   return operator(a, b);
 };
-
