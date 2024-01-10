@@ -11,6 +11,9 @@ debuggerDisplay.addEventListener("click", () => {
 //Number function
 numberBtn.forEach((button) => {
   button.addEventListener("click", () => {
+    if(!operator && !a){
+      display.textContent = '';
+    }
     if (!operator) {
       display.append(button.textContent);
       displayValue = display.textContent * 1;
@@ -37,7 +40,7 @@ const operatorBtn = document.querySelectorAll("[operatorBtn]");
 
 operatorBtn.forEach((button) => {
   button.addEventListener("click", () => {
-    if(operator){
+    if (operator) {
       a = total;
     }
     switch (button.textContent) {
@@ -70,10 +73,10 @@ clearBtn.addEventListener("click", () => {
   operator = "";
 });
 
-const equalBtn = document.querySelector('#equal');
-equalBtn.addEventListener('click', () => {
+const equalBtn = document.querySelector("#equal");
+equalBtn.addEventListener("click", () => {
   display.textContent = total;
-})
+});
 
 let displayValue;
 let a;
