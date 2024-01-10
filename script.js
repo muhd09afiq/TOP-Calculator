@@ -1,12 +1,35 @@
 const numberBtn = document.querySelectorAll("[numberBtn]");
 const display = document.querySelector(".display");
 
+const debuggerDisplay = document.querySelector(".debuggerDisplay");
+debuggerDisplay.addEventListener("click", () => {
+  if (display) {
+    debuggerDisplay.textContent = display.textContent;
+  }
+});
+
 //Number function
 numberBtn.forEach((button) => {
   button.addEventListener("click", () => {
-    
-    display.append(button.textContent);
-    displayValue = display.textContent * 1;
+    if (!operator) {
+      display.append(button.textContent);
+      displayValue = display.textContent * 1;
+      a = displayValue;
+    } else if (!b && operator) {
+      display.textContent = "";
+      display.append(button.textContent);
+      displayValue = display.textContent * 1;
+      b = displayValue;
+      total = operate(operator, a, b);
+    } else {
+      if (display.textContent == total) {
+        display.textContent = "";
+      }
+      display.append(button.textContent);
+      displayValue = display.textContent * 1;
+      b = displayValue;
+      total = operate(operator, a, b);
+    }
   });
 });
 
@@ -14,6 +37,9 @@ const operatorBtn = document.querySelectorAll("[operatorBtn]");
 
 operatorBtn.forEach((button) => {
   button.addEventListener("click", () => {
+    if(operator){
+      a = total;
+    }
     switch (button.textContent) {
       case "+":
         operator = add;
@@ -28,9 +54,8 @@ operatorBtn.forEach((button) => {
         operator = divide;
         break;
     }
-    if (!total){
-      a = displayValue;
-      displayValue = 0;
+    if (b) {
+      display.textContent = total;
     }
   });
 });
@@ -39,7 +64,16 @@ const clearBtn = document.querySelector("#clear");
 clearBtn.addEventListener("click", () => {
   display.textContent = "";
   displayValue = 0;
+  total = 0;
+  a = 0;
+  b = 0;
+  operator = "";
 });
+
+const equalBtn = document.querySelector('#equal');
+equalBtn.addEventListener('click', () => {
+  display.textContent = total;
+})
 
 let displayValue;
 let a;
@@ -59,7 +93,7 @@ const divide = function (a, b) {
 };
 
 let operator = "";
-let total;
+let total = 0;
 
 const operate = function (operator, a, b) {
   return operator(a, b);
