@@ -60,6 +60,9 @@ operatorBtn.forEach((button) => {
     if (b) {
       display.textContent = total;
     }
+    if(total === Infinity){
+      display.textContent = 'To Infinity and Beyond!!';
+    }
   });
 });
 
@@ -75,7 +78,11 @@ clearBtn.addEventListener("click", () => {
 
 const equalBtn = document.querySelector("#equal");
 equalBtn.addEventListener("click", () => {
-  display.textContent = total;
+  if(total === Infinity){
+    display.textContent = 'To Infinity and Beyond!!';
+  } else{
+    display.textContent = total;
+  }
 });
 
 let displayValue;
