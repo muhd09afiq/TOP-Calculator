@@ -14,7 +14,11 @@ const operandBtn = document.querySelectorAll('[operandBtn]');
 
 operandBtn.forEach(button => {
   button.addEventListener('click', () => {
-    
+    switch (button.textContent){
+      case '+':
+      operator = add;
+      break;
+    }
   })
 })
 
